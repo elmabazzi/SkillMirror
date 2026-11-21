@@ -2,7 +2,7 @@
 
 | | |
 |---|---|
-| **Version** | 0.1 (draft) |
+| **Version** | 1.0 (final version for the university assignment) |
 | **Date** | 21 November 2026 |
 | **Related documents** | [business.md](business.md) · [brand-book.md](brand-book.md) |
 | **Scope** | Version 1 (MVP): Junior Frontend Developer career path |
@@ -219,7 +219,7 @@ The gap analysis maps rubric criteria to these skill areas. The profile is a **d
 | — | **Supporting functions** | Email sign-up/login, student dashboard with progress tracker, basic admin tools (review queue, simulation publishing), data export and deletion |
 | — | **Language** | English interface in v1; Macedonian and Albanian planned once content is stable **[Assumption, see H-9]** |
 
-### Excluded from version 1
+### What version 1 will NOT do (excluded from version 1)
 
 | Excluded feature | Reason |
 |---|---|

@@ -18,6 +18,7 @@
 | **Tone of voice** | **Honest. Encouraging. Clear.** |
 | **Sounds like us** | "Explore your potential, practise real-world skills, and take your next career step with confidence." |
 | **Doesn't sound like us** | ~~"Our AI guarantees you'll land your dream job."~~ |
+| **Domain and Instagram** | Checked 21 Nov 2026: `skillmirror.com` and `@skillmirror` are already taken; `skillmirror.dev` appears available. See [Domain and social media checks](#domain-and-social-media-checks) |
 
 ![SkillMirror logo on light and dark backgrounds](brand/logo/skillmirror-logo-preview.svg)
 
@@ -41,6 +42,31 @@
 It leads with career exploration, the core of the vision. It appears in the full logo and in the homepage hero.
 
 **Bilingual use [to be tested with native speakers]:** taglines will need translations into Macedonian and Albanian that are adapted to sound natural, not translated literally. Translations must be checked by native speakers before use.
+
+### Domain and social media checks
+
+**Date checked:** 21 November 2026.
+
+**Method:**
+- **Domains:** a public registration-data lookup through RDAP (rdap.org). "Registered" means the registry returned a record with a registration date. "Not found" means the registry has no record, so the name *appears* available; this is confirmed only at purchase.
+- **Instagram:** opened the public profile URL `instagram.com/<handle>` without logging in.
+
+| Name | Result | Details |
+|---|---|---|
+| `skillmirror.com` | ❌ **Registered** by another party | Registered since 28 May 2015 (expires 28 May 2027) |
+| `skillmirror.app` | ❌ **Registered** | Since 16 Nov 2025 |
+| `skillmirror.ai` | ❌ **Registered** | Since 21 Apr 2026 |
+| `skillmirror.net` | ❌ **Registered** | Since 3 Aug 2026 |
+| `skillmirror.org` | ❌ **Registered** | Since 3 Jun 2026 |
+| `skillmirror.dev` | ✅ **Not found in the registry: appears available** | To be confirmed at a registrar |
+| `skillmirror.io` | ⚠️ **Not checked** | The registry offers no RDAP service; needs a manual WHOIS or registrar search |
+| `skillmirror.mk` | ⚠️ **Not checked** | No RDAP service for .mk; needs a manual search with the .mk registry (MARnet) |
+| Instagram `@skillmirror` | ❌ **Taken** | An existing public profile of an unrelated company; its bio describes recruitment / applicant-tracking software, and it links to skillmirror.com |
+| Instagram `@skillmirror.app`, `@skillmirror.dev`, `@getskillmirror` | ⚠️ **Inconclusive** | Instagram did not return readable page content to an automated check; must be checked manually in the app |
+
+**What this means**
+- The approved name **SkillMirror** is unchanged, but the exact `.com` domain and the exact Instagram handle are **not available**. The unrelated company using both works in recruitment software, which is a different market from career exploration. Still, the shared name could cause confusion. **No trademark search has been carried out [Open question].**
+- **Proposed next step (team decision, not yet done):** register `skillmirror.dev` (about US$12/year) and choose an available Instagram handle such as `@skillmirror.dev` after checking it manually. Record the final choices here with the date.
 
 ---
 
@@ -309,4 +335,6 @@ All approved brand assets are stored in [`docs/brand/`](brand/). The full list i
 | Typography: Manrope + Inter (JetBrains Mono optional for code) | ✅ Approved (21 Nov 2026) |
 | Tone of voice: Honest, Encouraging, Clear | ✅ Approved (21 Nov 2026) |
 | Brand voice examples (sounds like us / doesn't) | ✅ Approved (21 Nov 2026) |
+| Domain and Instagram availability check | ✅ Checked 21 Nov 2026 (see section 1). `.com` and `@skillmirror` taken; `.dev` appears available |
+| Register a domain and Instagram handle | ⏳ Not done; requires a team decision and a manual handle check |
 | Macedonian & Albanian tagline translations | ⏳ Not started; native-speaker review needed |
