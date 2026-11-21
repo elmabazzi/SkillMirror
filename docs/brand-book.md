@@ -2,10 +2,24 @@
 
 | | |
 |---|---|
-| **Version** | 0.1 (draft, proposed direction) |
+| **Version** | 1.0 (approved) |
 | **Date** | 21 November 2026 |
-| **Related documents** | [business.md](business.md) · [rules-and-flows.md](rules-and-flows.md) |
-| **Approval status** | **Visual identity NOT approved.** The previous logo was rejected and is not used or referenced here. Everything in this book is a *proposal* for discussion. The logo direction, palette, typography and tagline need the project owner's sign-off. No logo is final until it is explicitly approved. |
+| **Related documents** | [business.md](business.md) · [rules-and-flows.md](rules-and-flows.md) · [brand/README.md](brand/README.md) |
+| **Approval status** | **Approved by the project owner on 21 November 2026:** logo (Reflected Step, variation A, "Summit"), tagline, core palette, typography, tone of voice and brand voice examples. |
+
+### Brand at a glance
+
+| Element | Approved choice |
+|---|---|
+| **Logo** | Reflected Step, variation A, "Summit" (see [section 4](#4-logo)) |
+| **Tagline** | **See your career before you choose it.** |
+| **Core colours** | Mirror Indigo `#2F3B8F` · Reflection Teal `#14A394` · Spark Amber `#F2A93B` |
+| **Fonts** | **Manrope** (headings) · **Inter** (body text). JetBrains Mono optional, for code samples only |
+| **Tone of voice** | **Honest. Encouraging. Clear.** |
+| **Sounds like us** | "Explore your potential, practise real-world skills, and take your next career step with confidence." |
+| **Doesn't sound like us** | ~~"Our AI guarantees you'll land your dream job."~~ |
+
+![SkillMirror logo on light and dark backgrounds](brand/logo/skillmirror-logo-preview.svg)
 
 ---
 
@@ -20,13 +34,11 @@
 
 **Meaning:** the platform works like a mirror. It shows students an honest reflection of their current skills and of what a career really involves, so they can see clearly and take the next step.
 
-### Tagline — options for approval
+### Tagline (approved)
 
-| Option | Tagline | Notes |
-|---|---|---|
-| **A (recommended)** | **See your career before you choose it.** | Leads with career exploration, the core of the vision |
-| B | Try the job. See your gaps. Take the next step. | Describes the full journey; good for explainer contexts |
-| C | Your career, reflected. | Short and memorable; relies on the mirror metaphor and may need context |
+> **See your career before you choose it.**
+
+It leads with career exploration, the core of the vision. It appears in the full logo and in the homepage hero.
 
 **Bilingual use [to be tested with native speakers]:** taglines will need translations into Macedonian and Albanian that are adapted to sound natural, not translated literally. Translations must be checked by native speakers before use.
 
@@ -64,6 +76,8 @@
 
 ## 3. Brand personality
 
+**Tone of voice in three words: Honest. Encouraging. Clear.**
+
 If SkillMirror were a person, it would be **a supportive senior colleague in their first week as your mentor**: experienced, straightforward, encouraging, and respectful of your time.
 
 | We are… | …but not |
@@ -77,45 +91,68 @@ If SkillMirror were a person, it would be **a supportive senior colleague in the
 
 ---
 
-## 4. Logo direction
+## 4. Logo
 
-> **Status: exploration only. No logo has been designed or approved.** The previous logo was not approved and must not be reused, adapted or referenced. The concepts below are *directions* for a new design round. Final artwork will be created only after the project owner chooses a direction, and will be finalised only with their explicit approval.
+**Approved logo: Reflected Step, variation A, "Summit"** (approved by the project owner on 21 November 2026).
 
-### Design brief for the new logo
+| On light backgrounds | On dark backgrounds |
+|---|---|
+| ![SkillMirror full logo for light backgrounds](brand/logo/skillmirror-logo-light.svg) | ![SkillMirror full logo for dark backgrounds](brand/logo/skillmirror-logo-dark.svg) |
+| ![SkillMirror icon for light backgrounds](brand/logo/skillmirror-icon-light.svg) | ![SkillMirror icon for dark backgrounds](brand/logo/skillmirror-icon-dark.svg) |
 
-- **Must communicate:** reflection or self-insight, growth or a forward step, and a digital, professional context.
-- **Must work:** at favicon size (16×16 px) and app-icon size, in one colour, on light and dark backgrounds, and alongside both Latin (Albanian and English) and Cyrillic (Macedonian) text.
-- **Must avoid:** clichés such as graduation caps, light bulbs, rockets and brains; generic "AI sparkle" icons; anything that suggests recruitment (handshakes, briefcases, CVs); and any resemblance to the previously rejected logo.
+The dark-background files have a transparent background and light-coloured artwork. The panel image in [Brand at a glance](#brand-at-a-glance) ([`skillmirror-logo-preview.svg`](brand/logo/skillmirror-logo-preview.svg)) shows them on the Ink background.
 
-### Candidate directions (for discussion)
+### Concept
+An **indigo staircase** and its **teal mirrored staircase** rise towards each other on either side of a clear vertical **mirror line**. Above them floats an **amber block**: the next career step, shared by both sides. Together they say what SkillMirror does: an honest reflection of where you are, and a clear next step.
 
-| Direction | Concept | Strengths | Risks |
-|---|---|---|---|
-| **1. Reflected step** | An abstract mark in which a shape and its mirrored reflection together form an upward step or arrow | Combines "mirror" and "next step" in one idea | Can look like a generic chart icon if not drawn carefully |
-| **2. Split-frame "S/M" monogram** | A monogram where S and M share a central axis like a mirror line | Distinctive and compact; scales well | Monograms can feel cold; legibility must be tested |
-| **3. Bracket mirror** | Code brackets `< >` arranged as a mirror frame around a dot (the student) | Strong link to frontend and code | Too tied to coding if more career paths are added later |
-| **4. Wordmark-only** | A carefully set "SkillMirror" wordmark with a subtle mirrored detail in the "M" | Simple, clear and cheap to produce | Less recognisable as an app icon |
+### Construction (64 × 64 grid)
+- Each staircase has two steps of 12 units, and the outline rises from the outer edge to the centre.
+- The mirror line is a 4-unit gap between the two staircases.
+- The amber block is 16 × 16 units, centred over the mirror line, with the same 4-unit gap below it.
+- Flat colour only: no gradients, shadows or outlines.
 
-**Next step:** the project owner chooses one or two directions → sketches → 2–3 refined options → feedback → final artwork → **written approval** → assets saved in [`docs/brand/`](brand/).
+### Colour versions
 
-### Clear space and minimum size (to be defined)
-These rules will be set once a logo is approved. Placeholder rule: clear space equal to the cap height of the wordmark on all sides, and a minimum on-screen width of 24 px for the symbol and 96 px for the wordmark.
+| Element | On light backgrounds | On dark backgrounds |
+|---|---|---|
+| Left staircase | Mirror Indigo `#2F3B8F` | Mist `#F5F7FB` (Indigo loses contrast on dark) |
+| Right staircase | Reflection Teal `#14A394` | Reflection Teal `#14A394` |
+| Next-step block | Spark Amber `#F2A93B` | Spark Amber `#F2A93B` |
+| Wordmark "SkillMirror" (Manrope 700) | Ink `#161A2E` | Mist `#F5F7FB` |
+| Tagline (Inter 500) | Slate `#535A73` | `#C9CEDD` |
+
+In the SVG files the wordmark and tagline are converted to outlines, so the logo renders the same without the fonts installed.
+
+### Usage rules
+- **Full logo** (icon + wordmark + tagline): website header, presentations, documents and partner material.
+- **Icon on its own:** favicon, app icon, social-media avatar. It stays legible at 16 × 16 px.
+- **Clear space:** keep at least the width of the amber block (a quarter of the icon's height) free on all sides.
+- **Minimum size:** icon 16 px; full logo 240 px wide, so the tagline stays readable.
+- **Don't:** recolour, rotate, stretch, add effects, rearrange the elements, or place the light-background version on a dark background (or the other way round).
+- The previous, rejected logo must not be used, adapted or referenced.
 
 ---
 
-## 5. Colour palette (proposed)
+## 5. Colour palette
 
-> **Status: proposed. Pending approval together with the logo.** Contrast ratios below were calculated with the WCAG 2.x relative-luminance formula. Before final use they should be re-checked with an accessibility tool. Target: **WCAG 2.1 AA** (at least 4.5:1 for normal text, at least 3:1 for large text and UI components).
+> **Status: approved.** Contrast ratios below were calculated with the WCAG 2.x relative-luminance formula. Target: **WCAG 2.1 AA** (at least 4.5:1 for normal text, at least 3:1 for large text and UI components).
 
-### Core colours
+### Core palette (the three brand colours)
 
 | Role | Name | HEX | Contrast on White `#FFFFFF` | Recommended use |
 |---|---|---|---|---|
-| Primary | **Mirror Indigo** | `#2F3B8F` | 9.80 : 1 ✅ | Primary buttons, links, headings, key UI |
-| Primary dark | **Deep Indigo** | `#1F2766` | 13.63 : 1 ✅ | Hover/pressed states, dark sections |
-| Secondary | **Reflection Teal** | `#14A394` | 3.14 : 1 ⚠️ large text / graphics only | Illustrations, progress bars, highlights, icons |
-| Secondary (text-safe) | **Deep Teal** | `#0B7368` | 5.73 : 1 ✅ | Teal-coloured text and small UI elements |
-| Accent | **Spark Amber** | `#F2A93B` | 2.00 : 1 ❌ never for text on white | Small accents, badges, "next step" highlights. On dark backgrounds, or with Ink text on top (8.61 : 1 ✅) |
+| Primary | **Mirror Indigo** | `#2F3B8F` | 9.80 : 1 ✅ | Logo, primary buttons, links, headings, key UI |
+| Secondary | **Reflection Teal** | `#14A394` | 3.14 : 1 ⚠️ large text / graphics only | Logo, illustrations, progress bars, highlights, icons |
+| Accent | **Spark Amber** | `#F2A93B` | 2.00 : 1 ❌ never for text on white | Logo, small accents, badges, "next step" highlights. On dark backgrounds, or with Ink text on top (8.61 : 1 ✅) |
+
+### Supporting colours
+
+These support the core palette in the product UI. They are not brand colours in their own right.
+
+| Name | HEX | Contrast on White | Use |
+|---|---|---|---|
+| **Deep Indigo** | `#1F2766` | 13.63 : 1 ✅ | Hover/pressed states, dark sections |
+| **Deep Teal** (text-safe) | `#0B7368` | 5.73 : 1 ✅ | Teal-coloured text and small UI elements |
 
 ### Neutrals
 
@@ -142,20 +179,21 @@ Used in rubric feedback and the skill-gap analysis. **Colour must never be the o
 ### Suggested proportions
 About 60% neutrals (White, Mist), 25% Ink and Slate text, 10% Mirror Indigo, 5% Teal and Amber accents.
 
-### Dark mode (preliminary)
-Background `#161A2E` (Ink), surface `#1F2766` (Deep Indigo), text `#F5F7FB` (Mist, 16.03 : 1 on Ink ✅), with Teal `#14A394` (5.48 : 1 on Ink ✅) and Amber `#F2A93B` (8.61 : 1 on Ink ✅) as accents.
+### Dark mode
+Background `#161A2E` (Ink), surface `#1F2766` (Deep Indigo), text `#F5F7FB` (Mist, 16.03 : 1 on Ink ✅), with Teal `#14A394` (5.48 : 1 on Ink ✅) and Amber `#F2A93B` (8.61 : 1 on Ink ✅) as accents. Wherever Mirror Indigo would lose contrast on a dark background (including the logo), use Mist instead.
 
 ---
 
-## 6. Typography (proposed)
+## 6. Typography
 
-The typefaces must support **Latin with Albanian characters (ë, ç)** and **Macedonian Cyrillic (ѓ, ќ, ѕ, љ, њ, џ)**. All three proposed families are free on Google Fonts and list Latin and Cyrillic support. Every specific glyph above must be checked in a rendered test page before final approval.
+**Brand fonts: Manrope and Inter.** Both are free on Google Fonts and support **Latin with Albanian characters (ë, ç)** and **Macedonian Cyrillic (ѓ, ќ, ѕ, љ, њ, џ)**. Check these glyphs in the product's rendered pages during development.
 
 | Use | Typeface | Weights | Why |
 |---|---|---|---|
-| **Headings & display** | **Manrope** | 600, 700, 800 | Modern geometric sans; confident but friendly; Cyrillic support |
+| **Headings, display & wordmark** | **Manrope** | 600, 700, 800 | Modern geometric sans; confident but friendly; Cyrillic support |
 | **Body & UI** | **Inter** | 400, 500, 600 | Highly legible on screens; extensive language support |
-| **Code & technical content** | **JetBrains Mono** | 400, 600 | Clear monospaced font for simulation briefs, code samples and feedback snippets |
+
+**Optional, for code samples only:** **JetBrains Mono** (400, 600) for code in simulation briefs and feedback snippets. It is not a brand font and is never used for headings or body text.
 
 **Fallback stack:** `Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif`
 
@@ -176,6 +214,13 @@ Body text must never be smaller than 14 px. Lines should be kept to about 60–8
 ---
 
 ## 7. Brand voice
+
+**Tone of voice: Honest. Encouraging. Clear.**
+
+| | Example sentence |
+|---|---|
+| ✅ **Sounds like SkillMirror** | "Explore your potential, practise real-world skills, and take your next career step with confidence." |
+| ❌ **Does not sound like SkillMirror** | "Our AI guarantees you'll land your dream job." It promises an outcome nobody can guarantee, presents AI as infallible, and turns SkillMirror into a recruitment promise, which goes against all three tone words. |
 
 ### Voice principles
 
@@ -243,15 +288,25 @@ Body text must never be smaller than 14 px. Lines should be kept to about 60–8
 
 ## 9. Brand assets
 
-All approved brand assets will be stored in [`docs/brand/`](brand/). That directory is currently empty apart from a README, because **no visual identity has been approved yet.**
+All approved brand assets are stored in [`docs/brand/`](brand/). The full list is in [`docs/brand/README.md`](brand/README.md).
+
+| File | Use |
+|---|---|
+| [`brand/logo/skillmirror-logo-light.svg`](brand/logo/skillmirror-logo-light.svg) | Full logo (icon, wordmark, tagline) for light backgrounds |
+| [`brand/logo/skillmirror-logo-dark.svg`](brand/logo/skillmirror-logo-dark.svg) | Full logo for dark backgrounds |
+| [`brand/logo/skillmirror-icon-light.svg`](brand/logo/skillmirror-icon-light.svg) | Icon on its own for light backgrounds |
+| [`brand/logo/skillmirror-icon-dark.svg`](brand/logo/skillmirror-icon-dark.svg) | Icon on its own for dark backgrounds |
+| [`brand/logo/skillmirror-logo-preview.svg`](brand/logo/skillmirror-logo-preview.svg) | Presentation sheet showing both versions on light and dark panels (for documents, not production use) |
 
 ## 10. Approval checklist
 
 | Item | Status |
 |---|---|
-| Tagline choice (A / B / C) | ⏳ Awaiting project owner decision |
-| Logo direction (1–4) | ⏳ Awaiting project owner decision |
-| Final logo artwork | ⏳ Not started; requires explicit approval |
-| Colour palette | ⏳ Proposed |
-| Typography | ⏳ Proposed; glyph check pending |
+| Tagline: "See your career before you choose it." | ✅ Approved (21 Nov 2026) |
+| Logo: Reflected Step, variation A, "Summit" | ✅ Approved (21 Nov 2026) |
+| Final logo artwork (SVG, light and dark) | ✅ Delivered in `docs/brand/logo/` |
+| Core palette: Indigo, Teal, Amber | ✅ Approved (21 Nov 2026) |
+| Typography: Manrope + Inter (JetBrains Mono optional for code) | ✅ Approved (21 Nov 2026) |
+| Tone of voice: Honest, Encouraging, Clear | ✅ Approved (21 Nov 2026) |
+| Brand voice examples (sounds like us / doesn't) | ✅ Approved (21 Nov 2026) |
 | Macedonian & Albanian tagline translations | ⏳ Not started; native-speaker review needed |
