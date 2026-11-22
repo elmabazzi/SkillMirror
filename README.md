@@ -155,7 +155,8 @@ PORT=3001 npm run dev --prefix backend
 | Problem | Fix |
 |---|---|
 | `npm : File ... npm.ps1 cannot be loaded because running scripts is disabled` | PowerShell is blocking npm's launcher script. Run `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once, or type `npm.cmd` instead of `npm` |
-| `npm warn install-scripts ... esbuild` during install | Harmless. Recent npm versions ask before running install scripts; esbuild works without them |
+| `npm warn install-scripts ...` (esbuild, better-sqlite3) during install | Harmless. Recent npm versions ask before running install scripts. esbuild works without them, and better-sqlite3 uses the prebuilt binary included in its package, so nothing needs compiling |
+| `4 moderate severity vulnerabilities` in the backend | These come from an old esbuild bundled inside **drizzle-kit**, a development-only tool; the advisory concerns esbuild's dev web server, which drizzle-kit does not use. `npm audit --omit=dev` reports 0. **Do not run `npm audit fix --force`**: it downgrades drizzle-kit and breaks migrations |
 | `EADDRINUSE` / port already in use | Another program uses port 3000 or 5173. Stop it, or set `PORT` (API) as shown above. Vite picks the next free port automatically and prints it |
 | `/health` returns `503` | The database is missing or not migrated. Run `npm run db:migrate --prefix backend` and check the API terminal for the error |
 | `EBADENGINE` / "Unsupported engine" warning | Your Node.js is older than 22.12. Install Node 26 LTS |
