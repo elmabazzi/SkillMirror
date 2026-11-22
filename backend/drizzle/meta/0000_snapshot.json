@@ -1,0 +1,1486 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "e360c9ae-b744-4dce-a9f2-ea92f1733898",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "users": {
+      "name": "users",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "email": {
+          "name": "email",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'student'"
+        },
+        "age_confirmed_at": {
+          "name": "age_confirmed_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "terms_accepted_at": {
+          "name": "terms_accepted_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "deletion_requested_at": {
+          "name": "deletion_requested_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "users_email_unique": {
+          "name": "users_email_unique",
+          "columns": [
+            "email"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "users_role_check": {
+          "name": "users_role_check",
+          "value": "role IN ('student', 'content_author', 'administrator')"
+        }
+      }
+    },
+    "career_paths": {
+      "name": "career_paths",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "career_paths_name_unique": {
+          "name": "career_paths_name_unique",
+          "columns": [
+            "name"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "rubric_criteria": {
+      "name": "rubric_criteria",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "skill_area_id": {
+          "name": "skill_area_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "rubric_criteria_code_unique": {
+          "name": "rubric_criteria_code_unique",
+          "columns": [
+            "code"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "rubric_criteria_skill_area_id_skill_areas_id_fk": {
+          "name": "rubric_criteria_skill_area_id_skill_areas_id_fk",
+          "tableFrom": "rubric_criteria",
+          "tableTo": "skill_areas",
+          "columnsFrom": [
+            "skill_area_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "simulation_version_criteria": {
+      "name": "simulation_version_criteria",
+      "columns": {
+        "simulation_version_id": {
+          "name": "simulation_version_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "criterion_id": {
+          "name": "criterion_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "level_descriptors": {
+          "name": "level_descriptors",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "svc_version_fk": {
+          "name": "svc_version_fk",
+          "tableFrom": "simulation_version_criteria",
+          "tableTo": "simulation_versions",
+          "columnsFrom": [
+            "simulation_version_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "svc_criterion_fk": {
+          "name": "svc_criterion_fk",
+          "tableFrom": "simulation_version_criteria",
+          "tableTo": "rubric_criteria",
+          "columnsFrom": [
+            "criterion_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "simulation_version_criteria_simulation_version_id_criterion_id_pk": {
+          "columns": [
+            "simulation_version_id",
+            "criterion_id"
+          ],
+          "name": "simulation_version_criteria_simulation_version_id_criterion_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "simulation_versions": {
+      "name": "simulation_versions",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "simulation_id": {
+          "name": "simulation_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "version_number": {
+          "name": "version_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'draft'"
+        },
+        "brief": {
+          "name": "brief",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "starter_url": {
+          "name": "starter_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "required_deliverables": {
+          "name": "required_deliverables",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "approved_by": {
+          "name": "approved_by",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "simulation_versions_one_published": {
+          "name": "simulation_versions_one_published",
+          "columns": [
+            "simulation_id"
+          ],
+          "isUnique": true,
+          "where": "status = 'published'"
+        },
+        "simulation_versions_number_unique": {
+          "name": "simulation_versions_number_unique",
+          "columns": [
+            "simulation_id",
+            "version_number"
+          ],
+          "isUnique": true
+        },
+        "simulation_versions_id_simulation_unique": {
+          "name": "simulation_versions_id_simulation_unique",
+          "columns": [
+            "id",
+            "simulation_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "simulation_versions_simulation_id_simulations_id_fk": {
+          "name": "simulation_versions_simulation_id_simulations_id_fk",
+          "tableFrom": "simulation_versions",
+          "tableTo": "simulations",
+          "columnsFrom": [
+            "simulation_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "simulation_versions_approved_by_users_id_fk": {
+          "name": "simulation_versions_approved_by_users_id_fk",
+          "tableFrom": "simulation_versions",
+          "tableTo": "users",
+          "columnsFrom": [
+            "approved_by"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "simulation_versions_status_check": {
+          "name": "simulation_versions_status_check",
+          "value": "status IN ('draft', 'published', 'retired')"
+        },
+        "simulation_versions_version_check": {
+          "name": "simulation_versions_version_check",
+          "value": "version_number >= 1"
+        },
+        "simulation_versions_published_at_check": {
+          "name": "simulation_versions_published_at_check",
+          "value": "status = 'draft' OR published_at IS NOT NULL"
+        }
+      }
+    },
+    "simulations": {
+      "name": "simulations",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "career_path_id": {
+          "name": "career_path_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "simulations_path_code_unique": {
+          "name": "simulations_path_code_unique",
+          "columns": [
+            "career_path_id",
+            "code"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "simulations_career_path_id_career_paths_id_fk": {
+          "name": "simulations_career_path_id_career_paths_id_fk",
+          "tableFrom": "simulations",
+          "tableTo": "career_paths",
+          "columnsFrom": [
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "skill_areas": {
+      "name": "skill_areas",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "career_path_id": {
+          "name": "career_path_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "skill_areas_path_name_unique": {
+          "name": "skill_areas_path_name_unique",
+          "columns": [
+            "career_path_id",
+            "name"
+          ],
+          "isUnique": true
+        },
+        "skill_areas_id_path_unique": {
+          "name": "skill_areas_id_path_unique",
+          "columns": [
+            "id",
+            "career_path_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "skill_areas_career_path_id_career_paths_id_fk": {
+          "name": "skill_areas_career_path_id_career_paths_id_fk",
+          "tableFrom": "skill_areas",
+          "tableTo": "career_paths",
+          "columnsFrom": [
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "snapshot_ratings": {
+      "name": "snapshot_ratings",
+      "columns": {
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "skill_area_id": {
+          "name": "skill_area_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "career_path_id": {
+          "name": "career_path_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "rating": {
+          "name": "rating",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "snapshot_ratings_snapshot_fk": {
+          "name": "snapshot_ratings_snapshot_fk",
+          "tableFrom": "snapshot_ratings",
+          "tableTo": "snapshots",
+          "columnsFrom": [
+            "snapshot_id",
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id",
+            "career_path_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "snapshot_ratings_skill_area_fk": {
+          "name": "snapshot_ratings_skill_area_fk",
+          "tableFrom": "snapshot_ratings",
+          "tableTo": "skill_areas",
+          "columnsFrom": [
+            "skill_area_id",
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id",
+            "career_path_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "snapshot_ratings_snapshot_id_skill_area_id_pk": {
+          "columns": [
+            "snapshot_id",
+            "skill_area_id"
+          ],
+          "name": "snapshot_ratings_snapshot_id_skill_area_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "snapshot_ratings_rating_check": {
+          "name": "snapshot_ratings_rating_check",
+          "value": "rating BETWEEN 1 AND 4"
+        }
+      }
+    },
+    "snapshots": {
+      "name": "snapshots",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "career_path_id": {
+          "name": "career_path_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "interests": {
+          "name": "interests",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "goal": {
+          "name": "goal",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "weekly_hours": {
+          "name": "weekly_hours",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "completed_at": {
+          "name": "completed_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "snapshots_user_path_unique": {
+          "name": "snapshots_user_path_unique",
+          "columns": [
+            "user_id",
+            "career_path_id"
+          ],
+          "isUnique": true
+        },
+        "snapshots_id_path_unique": {
+          "name": "snapshots_id_path_unique",
+          "columns": [
+            "id",
+            "career_path_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "snapshots_user_id_users_id_fk": {
+          "name": "snapshots_user_id_users_id_fk",
+          "tableFrom": "snapshots",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "snapshots_career_path_id_career_paths_id_fk": {
+          "name": "snapshots_career_path_id_career_paths_id_fk",
+          "tableFrom": "snapshots",
+          "tableTo": "career_paths",
+          "columnsFrom": [
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "snapshots_goal_check": {
+          "name": "snapshots_goal_check",
+          "value": "goal IN ('explore', 'internship', 'first_job')"
+        },
+        "snapshots_weekly_hours_check": {
+          "name": "snapshots_weekly_hours_check",
+          "value": "weekly_hours >= 0"
+        }
+      }
+    },
+    "feedback_items": {
+      "name": "feedback_items",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "submission_id": {
+          "name": "submission_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "simulation_version_id": {
+          "name": "simulation_version_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "criterion_id": {
+          "name": "criterion_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "level": {
+          "name": "level",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "comment": {
+          "name": "comment",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "feedback_items_criterion_unique": {
+          "name": "feedback_items_criterion_unique",
+          "columns": [
+            "submission_id",
+            "criterion_id"
+          ],
+          "isUnique": true
+        },
+        "feedback_items_id_submission_unique": {
+          "name": "feedback_items_id_submission_unique",
+          "columns": [
+            "id",
+            "submission_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "feedback_items_submission_fk": {
+          "name": "feedback_items_submission_fk",
+          "tableFrom": "feedback_items",
+          "tableTo": "submissions",
+          "columnsFrom": [
+            "submission_id",
+            "simulation_version_id"
+          ],
+          "columnsTo": [
+            "id",
+            "simulation_version_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "feedback_items_rubric_fk": {
+          "name": "feedback_items_rubric_fk",
+          "tableFrom": "feedback_items",
+          "tableTo": "simulation_version_criteria",
+          "columnsFrom": [
+            "simulation_version_id",
+            "criterion_id"
+          ],
+          "columnsTo": [
+            "simulation_version_id",
+            "criterion_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "feedback_items_level_check": {
+          "name": "feedback_items_level_check",
+          "value": "level BETWEEN 0 AND 3"
+        }
+      }
+    },
+    "reviews": {
+      "name": "reviews",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "submission_id": {
+          "name": "submission_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "feedback_item_id": {
+          "name": "feedback_item_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "reason": {
+          "name": "reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch())"
+        },
+        "reviewer_id": {
+          "name": "reviewer_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "response": {
+          "name": "response",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "resolved_at": {
+          "name": "resolved_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "reviews_submission_id_submissions_id_fk": {
+          "name": "reviews_submission_id_submissions_id_fk",
+          "tableFrom": "reviews",
+          "tableTo": "submissions",
+          "columnsFrom": [
+            "submission_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "reviews_reviewer_id_users_id_fk": {
+          "name": "reviews_reviewer_id_users_id_fk",
+          "tableFrom": "reviews",
+          "tableTo": "users",
+          "columnsFrom": [
+            "reviewer_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "reviews_feedback_item_fk": {
+          "name": "reviews_feedback_item_fk",
+          "tableFrom": "reviews",
+          "tableTo": "feedback_items",
+          "columnsFrom": [
+            "feedback_item_id",
+            "submission_id"
+          ],
+          "columnsTo": [
+            "id",
+            "submission_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "reviews_reason_check": {
+          "name": "reviews_reason_check",
+          "value": "reason IN ('reported', 'low_confidence', 'spot_check')"
+        },
+        "reviews_reported_item_check": {
+          "name": "reviews_reported_item_check",
+          "value": "reason <> 'reported' OR feedback_item_id IS NOT NULL"
+        }
+      }
+    },
+    "submission_access_log": {
+      "name": "submission_access_log",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "admin_id": {
+          "name": "admin_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "submission_id": {
+          "name": "submission_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "reason": {
+          "name": "reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "accessed_at": {
+          "name": "accessed_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch())"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "submission_access_log_admin_id_users_id_fk": {
+          "name": "submission_access_log_admin_id_users_id_fk",
+          "tableFrom": "submission_access_log",
+          "tableTo": "users",
+          "columnsFrom": [
+            "admin_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "submission_access_log_submission_id_submissions_id_fk": {
+          "name": "submission_access_log_submission_id_submissions_id_fk",
+          "tableFrom": "submission_access_log",
+          "tableTo": "submissions",
+          "columnsFrom": [
+            "submission_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "submission_access_log_reason_check": {
+          "name": "submission_access_log_reason_check",
+          "value": "reason IN ('quality_review', 'support', 'flagged')"
+        }
+      }
+    },
+    "submissions": {
+      "name": "submissions",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "simulation_id": {
+          "name": "simulation_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "simulation_version_id": {
+          "name": "simulation_version_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "attempt_number": {
+          "name": "attempt_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "repo_url": {
+          "name": "repo_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "zip_path": {
+          "name": "zip_path",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "written_deliverables": {
+          "name": "written_deliverables",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ai_used": {
+          "name": "ai_used",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "ai_use_description": {
+          "name": "ai_use_description",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "submitted_at": {
+          "name": "submitted_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch())"
+        },
+        "evaluated_at": {
+          "name": "evaluated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "submissions_attempt_unique": {
+          "name": "submissions_attempt_unique",
+          "columns": [
+            "user_id",
+            "simulation_id",
+            "attempt_number"
+          ],
+          "isUnique": true
+        },
+        "submissions_id_version_unique": {
+          "name": "submissions_id_version_unique",
+          "columns": [
+            "id",
+            "simulation_version_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "submissions_user_id_users_id_fk": {
+          "name": "submissions_user_id_users_id_fk",
+          "tableFrom": "submissions",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "submissions_version_fk": {
+          "name": "submissions_version_fk",
+          "tableFrom": "submissions",
+          "tableTo": "simulation_versions",
+          "columnsFrom": [
+            "simulation_version_id",
+            "simulation_id"
+          ],
+          "columnsTo": [
+            "id",
+            "simulation_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "submissions_attempt_check": {
+          "name": "submissions_attempt_check",
+          "value": "attempt_number BETWEEN 1 AND 3"
+        },
+        "submissions_code_check": {
+          "name": "submissions_code_check",
+          "value": "(repo_url IS NOT NULL AND zip_path IS NULL) OR (repo_url IS NULL AND zip_path IS NOT NULL)"
+        },
+        "submissions_ai_use_check": {
+          "name": "submissions_ai_use_check",
+          "value": "ai_used = 0 OR (ai_use_description IS NOT NULL AND ai_use_description <> '')"
+        }
+      }
+    },
+    "next_steps": {
+      "name": "next_steps",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "summary_id": {
+          "name": "summary_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "career_path_id": {
+          "name": "career_path_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "position": {
+          "name": "position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "skill_area_id": {
+          "name": "skill_area_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "action": {
+          "name": "action",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "outcome": {
+          "name": "outcome",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "time_estimate": {
+          "name": "time_estimate",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "resource": {
+          "name": "resource",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "next_steps_position_unique": {
+          "name": "next_steps_position_unique",
+          "columns": [
+            "summary_id",
+            "position"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "next_steps_summary_fk": {
+          "name": "next_steps_summary_fk",
+          "tableFrom": "next_steps",
+          "tableTo": "readiness_summaries",
+          "columnsFrom": [
+            "summary_id",
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id",
+            "career_path_id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "next_steps_skill_area_fk": {
+          "name": "next_steps_skill_area_fk",
+          "tableFrom": "next_steps",
+          "tableTo": "skill_areas",
+          "columnsFrom": [
+            "skill_area_id",
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id",
+            "career_path_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "next_steps_position_check": {
+          "name": "next_steps_position_check",
+          "value": "position BETWEEN 1 AND 3"
+        },
+        "next_steps_kind_check": {
+          "name": "next_steps_kind_check",
+          "value": "kind IN ('gap', 'blind_spot', 'stretch')"
+        }
+      }
+    },
+    "readiness_summaries": {
+      "name": "readiness_summaries",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "career_path_id": {
+          "name": "career_path_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "include_gap_analysis": {
+          "name": "include_gap_analysis",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": true
+        },
+        "include_next_steps": {
+          "name": "include_next_steps",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": true
+        },
+        "include_snapshot_answers": {
+          "name": "include_snapshot_answers",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": false
+        },
+        "include_full_feedback": {
+          "name": "include_full_feedback",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": false
+        },
+        "include_code": {
+          "name": "include_code",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": false
+        },
+        "generated_at": {
+          "name": "generated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch())"
+        }
+      },
+      "indexes": {
+        "readiness_summaries_user_path_unique": {
+          "name": "readiness_summaries_user_path_unique",
+          "columns": [
+            "user_id",
+            "career_path_id"
+          ],
+          "isUnique": true
+        },
+        "readiness_summaries_id_path_unique": {
+          "name": "readiness_summaries_id_path_unique",
+          "columns": [
+            "id",
+            "career_path_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "readiness_summaries_user_id_users_id_fk": {
+          "name": "readiness_summaries_user_id_users_id_fk",
+          "tableFrom": "readiness_summaries",
+          "tableTo": "users",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "readiness_summaries_career_path_id_career_paths_id_fk": {
+          "name": "readiness_summaries_career_path_id_career_paths_id_fk",
+          "tableFrom": "readiness_summaries",
+          "tableTo": "career_paths",
+          "columnsFrom": [
+            "career_path_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    },
+    "share_links": {
+      "name": "share_links",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "summary_id": {
+          "name": "summary_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "token_hash": {
+          "name": "token_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch())"
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "revoked_at": {
+          "name": "revoked_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "share_links_token_hash_unique": {
+          "name": "share_links_token_hash_unique",
+          "columns": [
+            "token_hash"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "share_links_summary_id_readiness_summaries_id_fk": {
+          "name": "share_links_summary_id_readiness_summaries_id_fk",
+          "tableFrom": "share_links",
+          "tableTo": "readiness_summaries",
+          "columnsFrom": [
+            "summary_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "share_links_expiry_check": {
+          "name": "share_links_expiry_check",
+          "value": "expires_at IS NULL OR expires_at > created_at"
+        }
+      }
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
