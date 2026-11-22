@@ -1,5 +1,11 @@
+/* The header sits on top of the hero background, so both read as one opening screen. */
+
 .site-header {
-  background: var(--color-bg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
 }
 
 .site-header__inner {

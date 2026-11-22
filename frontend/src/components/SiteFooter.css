@@ -1,6 +1,22 @@
+/* Always dark (Ink) in both colour schemes, so it uses the fixed brand palette. */
+
 .site-footer {
-  border-top: 1px solid var(--color-border);
-  background: var(--color-bg);
+  position: relative;
+  background: var(--sm-ink);
+  color: var(--sm-mist);
+  border-top: 1px solid var(--sm-line-a14);
+}
+
+/* Thin journey-gradient rule along the top edge */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-journey);
+  opacity: 0.9;
 }
 
 .site-footer__inner {
@@ -18,7 +34,7 @@
 }
 
 .site-footer__name {
-  color: var(--color-heading);
+  color: var(--sm-mist);
   font: 700 1.25rem / 1.75rem var(--font-heading);
 }
 
@@ -27,6 +43,18 @@
 }
 
 .site-footer__meta {
-  color: var(--color-text-muted);
+  color: var(--sm-line);
   font: var(--text-small);
+}
+
+@media (min-width: 48rem) {
+  .site-footer__inner {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: var(--space-8);
+  }
+
+  .site-footer__brand {
+    grid-row: span 2;
+  }
 }

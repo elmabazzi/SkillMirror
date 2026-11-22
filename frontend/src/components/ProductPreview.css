@@ -1,0 +1,343 @@
+/* Hero product mockup. Every text size is at least 14 px (brand book §6). */
+
+.preview {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  max-width: 36rem;
+  justify-self: center;
+}
+
+/* Faint dot grid and glow behind the mockup */
+.preview::before {
+  content: "";
+  position: absolute;
+  inset: -2rem -1rem;
+  z-index: -1;
+  background-image: radial-gradient(var(--dot-color) 1.2px, transparent 1.2px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(ellipse at center, #000 35%, transparent 75%);
+}
+
+.preview__stage {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* ---- Shared card look ------------------------------------------------ */
+
+.preview__window,
+.preview__skills,
+.preview__feedback-inner {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-float);
+  color: var(--color-text);
+}
+
+.preview__label,
+.preview__card-title {
+  color: var(--color-text-muted);
+  font: 600 0.875rem / 1.25rem var(--font-body);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ---- Simulation window ------------------------------------------------ */
+
+.preview__window {
+  overflow: hidden;
+}
+
+.preview__chrome {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface-muted);
+}
+
+.preview__dots {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.preview__dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-level-empty);
+}
+
+.preview__dots span:first-child {
+  background: var(--sm-spark-amber);
+}
+
+.preview__title {
+  font: 600 0.875rem / 1.25rem var(--font-heading);
+  color: var(--color-heading);
+}
+
+.preview__body {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.preview__brief {
+  font: 500 1rem / 1.5rem var(--font-body);
+}
+
+.preview__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  font: var(--text-small);
+  color: var(--color-text-muted);
+}
+
+.preview__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.preview__pill {
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-full);
+  background: var(--tint-teal);
+  color: var(--color-text);
+  font: 500 0.875rem / 1.25rem var(--font-body);
+}
+
+.preview__rubric {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+}
+
+.preview__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.preview__chips li {
+  padding: 2px var(--space-3);
+  border: 1px solid var(--color-accent-graphic);
+  border-radius: var(--radius-sm);
+  background: var(--tint-teal);
+  color: var(--color-text);
+  font: 600 0.875rem / 1.25rem var(--font-code);
+}
+
+/* ---- Skills card ------------------------------------------------------ */
+
+.preview__skills {
+  padding: var(--space-4) var(--space-5);
+}
+
+.preview__skill-list {
+  display: grid;
+  gap: var(--space-3);
+  margin: var(--space-3) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.preview__skill {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--space-1) var(--space-3);
+  font: var(--text-small);
+}
+
+.preview__skill-area {
+  font-weight: 500;
+}
+
+.preview__skill-level {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-weight: 600;
+}
+
+.meter {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+}
+
+.meter span {
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-level-empty);
+}
+
+.meter--strong .is-filled {
+  background: var(--color-level-strong);
+}
+
+.meter--developing .is-filled {
+  background: var(--color-level-developing);
+}
+
+.preview__skill:has(.meter--strong) .preview__skill-level svg {
+  color: var(--color-level-strong);
+}
+
+.preview__skill:has(.meter--developing) .preview__skill-level svg {
+  color: var(--color-level-developing);
+}
+
+/* ---- Feedback card ---------------------------------------------------- */
+
+.preview__feedback-inner {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-left: 4px solid var(--color-level-developing);
+}
+
+.preview__feedback-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-heading);
+  font: 700 1rem / 1.5rem var(--font-heading);
+}
+
+.preview__feedback-title svg {
+  color: var(--color-level-developing);
+  flex: none;
+}
+
+.preview__feedback-text {
+  font: var(--text-small);
+}
+
+.preview__ai-label {
+  display: flex;
+  gap: var(--space-2);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font: italic 400 0.875rem / 1.25rem var(--font-body);
+}
+
+.preview__ai-label svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--color-accent-graphic);
+}
+
+/* ---- Caption ---------------------------------------------------------- */
+
+.preview__caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+  color: var(--color-text-muted);
+  font: 500 0.875rem / 1.25rem var(--font-body);
+}
+
+/* ---- Small screens: cards stack in normal flow, slightly offset ------- */
+
+@media (max-width: 63.99rem) {
+  .preview__skills {
+    margin-left: var(--space-6);
+  }
+
+  .preview__feedback {
+    margin-right: var(--space-6);
+  }
+}
+
+/* ---- Large screens: layered composition -------------------------------
+   Window on top; feedback card (left) and skills card (right) below it.
+   The skills card overlaps only the window's bottom-right corner, which is
+   kept empty by limiting the rubric chips to the left part of the window,
+   so no card ever covers text. */
+
+@media (min-width: 64rem) {
+  .preview__stage {
+    grid-template-columns: minmax(0, 1fr) 14.5rem;
+    column-gap: var(--space-4);
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .preview__window {
+    grid-column: 1 / -1;
+    margin-right: var(--space-10);
+  }
+
+  /* Chips end before the skills card starts, at every width:
+     chip row = stage - 5rem (window margin + padding); card = 14.5rem from the right. */
+  .preview__rubric .preview__chips {
+    max-width: calc(100% - 11.5rem);
+  }
+
+  .preview__feedback {
+    grid-column: 1;
+    grid-row: 2;
+    margin: var(--space-5) 0 0 calc(-1 * var(--space-6));
+    z-index: 2;
+  }
+
+  .preview__skills {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: -6rem;
+    z-index: 3;
+  }
+}
+
+/* ---- Motion: entrance and a gentle float, only when motion is welcome -- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .preview__part {
+    animation: preview-rise 700ms var(--ease-out) both;
+  }
+
+  .preview__window {
+    animation-delay: 100ms;
+  }
+
+  .preview__skills {
+    animation-delay: 350ms;
+  }
+
+  .preview__feedback {
+    animation-delay: 600ms;
+  }
+
+  .preview__feedback-inner {
+    animation: preview-float 7s ease-in-out 1.4s infinite;
+  }
+}
+
+@keyframes preview-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes preview-float {
+  50% {
+    transform: translateY(-6px);
+  }
+}

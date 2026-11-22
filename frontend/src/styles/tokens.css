@@ -2,7 +2,7 @@
  * SkillMirror design tokens.
  * Source: docs/brand-book.md §5 (colour) and §6 (typography). Approved 21 Nov 2026.
  * Components use the semantic tokens (--color-text, --color-surface, ...),
- * never raw hex values, so dark mode only has to change this file.
+ * never raw colour values, so dark mode only has to change this file.
  */
 
 :root {
@@ -28,14 +28,32 @@
   --sm-warning-ochre: #9a5b0a; /* preferred for skill gaps: a gap is not a failure */
   --sm-error-red: #b93a32; /* system problems only, never a student's skill level */
 
+  /* Translucent versions of the brand colours, for washes, tints and glows only
+     (never behind body text without a solid surface in between). */
+  --sm-indigo-a08: rgb(47 59 143 / 0.08);
+  --sm-indigo-a14: rgb(47 59 143 / 0.14);
+  --sm-indigo-a55: rgb(47 59 143 / 0.55);
+  --sm-teal-a12: rgb(20 163 148 / 0.12);
+  --sm-teal-a18: rgb(20 163 148 / 0.18);
+  --sm-amber-a14: rgb(242 169 59 / 0.14);
+  --sm-amber-a20: rgb(242 169 59 / 0.2);
+  --sm-red-a22: rgb(185 58 50 / 0.22);
+  --sm-line-a14: rgb(220 225 236 / 0.14);
+  --sm-ink-a10: rgb(22 26 46 / 0.1);
+  --sm-ink-a18: rgb(22 26 46 / 0.18);
+  --sm-ink-a28: rgb(22 26 46 / 0.28);
+
   /* ---- Semantic colour roles (light mode) -------------------------- */
   --color-bg: var(--sm-mist);
   --color-surface: var(--sm-white);
   --color-surface-strong: var(--sm-mirror-indigo);
+  --color-surface-muted: var(--sm-mist);
+  --color-pill-bg: var(--sm-white); /* small labels with accent-coloured text */
   --color-text: var(--sm-ink);
   --color-text-muted: var(--sm-slate);
   --color-text-on-strong: var(--sm-mist);
   --color-heading: var(--sm-mirror-indigo);
+  --color-heading-end: var(--sm-deep-indigo); /* end of the headline gradient */
   --color-link: var(--sm-mirror-indigo);
   --color-border: var(--sm-line);
   --color-primary: var(--sm-mirror-indigo);
@@ -47,7 +65,29 @@
   --color-on-highlight: var(--sm-ink); /* 8.61:1 */
   --color-focus: var(--sm-mirror-indigo); /* 9.14:1 on Mist; Amber would be only 1.86:1 */
 
-  /* ---- Typography (§6)--------------------------------------------- */
+  /* Rubric levels in illustrations: always shown with an icon and a text label. */
+  --color-level-strong: var(--sm-success-green);
+  --color-level-developing: var(--sm-warning-ochre);
+  --color-level-empty: var(--sm-line);
+
+  /* Decorative washes and tints */
+  --wash-teal: var(--sm-teal-a18);
+  --wash-amber: var(--sm-amber-a20);
+  --wash-indigo: var(--sm-indigo-a14);
+  --tint-indigo: var(--sm-indigo-a08);
+  --tint-teal: var(--sm-teal-a12);
+  --tint-amber: var(--sm-amber-a14);
+  --dot-color: var(--sm-indigo-a14);
+
+  /* The journey line: reflection (Indigo) to progress (Teal) to action (Amber). */
+  --gradient-journey: linear-gradient(
+    90deg,
+    var(--sm-mirror-indigo),
+    var(--sm-reflection-teal),
+    var(--sm-spark-amber)
+  );
+
+  /* ---- Typography (§6) --------------------------------------------- */
   --font-heading: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-code: "JetBrains Mono", ui-monospace, "Cascadia Code", Consolas, monospace;
@@ -68,17 +108,26 @@
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
+  --space-20: 5rem;
   --space-24: 6rem;
 
   --radius-sm: 0.375rem;
   --radius-md: 0.75rem;
   --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 999px;
 
-  --shadow-card: 0 1px 2px rgb(22 26 46 / 0.06), 0 4px 16px rgb(22 26 46 / 0.06);
+  --shadow-card: 0 1px 2px var(--sm-ink-a10), 0 4px 16px var(--sm-ink-a10);
+  --shadow-card-hover: 0 2px 4px var(--sm-ink-a10), 0 16px 32px -8px var(--sm-ink-a18);
+  --shadow-float: 0 4px 8px -2px var(--sm-ink-a10), 0 24px 48px -12px var(--sm-ink-a28);
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 
   --content-width: 72rem;
   --gutter: 1rem;
@@ -94,9 +143,12 @@
     --color-bg: var(--sm-ink);
     --color-surface: var(--sm-deep-indigo);
     --color-surface-strong: var(--sm-deep-indigo);
+    --color-surface-muted: var(--sm-ink);
+    --color-pill-bg: var(--sm-ink); /* Teal text: 5.48:1 on Ink, only 4.35:1 on Deep Indigo */
     --color-text: var(--sm-mist);
     --color-text-muted: var(--sm-line); /* Slate is too dark on Ink; Line stays readable */
     --color-heading: var(--sm-mist);
+    --color-heading-end: var(--sm-reflection-teal); /* 5.48:1 on Ink, large text */
     --color-link: var(--sm-mist);
     --color-border: var(--sm-slate);
     --color-primary: var(--sm-spark-amber);
@@ -105,7 +157,20 @@
     --color-accent-text: var(--sm-reflection-teal); /* 5.48:1 on Ink */
     --color-accent-graphic: var(--sm-reflection-teal);
     --color-focus: var(--sm-spark-amber); /* 8.61:1 on Ink */
+
+    --color-level-strong: var(--sm-reflection-teal);
+    --color-level-developing: var(--sm-spark-amber);
+    --color-level-empty: var(--sm-slate);
+
+    --wash-teal: var(--sm-teal-a12);
+    --wash-amber: var(--sm-amber-a14);
+    --wash-indigo: var(--sm-indigo-a55);
+    --tint-indigo: var(--sm-line-a14);
+    --dot-color: var(--sm-line-a14);
+
     --shadow-card: none;
+    --shadow-card-hover: 0 16px 32px -12px rgb(0 0 0 / 0.5);
+    --shadow-float: 0 24px 48px -12px rgb(0 0 0 / 0.55);
   }
 }
 

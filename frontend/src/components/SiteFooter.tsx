@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer__inner">
         <div className="site-footer__brand">
-          <BrandPicture asset="icon" width={32} alt="" />
+          <BrandPicture asset="icon" width={32} alt="" background="dark" />
           <span className="site-footer__name">SkillMirror</span>
         </div>
         <p className="site-footer__promise">Honest reflection, real practice, clear next steps.</p>
