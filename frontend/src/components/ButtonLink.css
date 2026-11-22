@@ -1,0 +1,27 @@
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 3rem; /* comfortable touch target */
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font: 600 1rem / 1.5rem var(--font-body);
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+.button-link:hover {
+  background: var(--color-primary-hover);
+}
+
+.button-link:active {
+  transform: translateY(1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-link {
+    transition: none;
+  }
+}

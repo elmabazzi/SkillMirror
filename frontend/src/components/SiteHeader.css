@@ -1,0 +1,10 @@
+.site-header {
+  background: var(--color-bg);
+}
+
+.site-header__inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  /* Clear space around the logo: at least a quarter of the icon's height (brand book §4). */
+  padding: var(--space-6) var(--gutter);
+}

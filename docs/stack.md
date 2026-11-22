@@ -46,7 +46,7 @@ We chose one TypeScript-based stack across frontend and backend, with a file-bas
 | **npm** | Package manager; each project has its own `package-lock.json` |
 | **Drizzle Kit** | Generates and checks the SQL migrations from the Drizzle schema |
 | **tsx** | Runs the backend's TypeScript directly during development |
-| **ESLint** | Linting for the frontend, from the official Vite React + TypeScript template |
+| **Oxlint** | Linting for the frontend, from the official Vite React + TypeScript template |
 
 ## Project structure
 
